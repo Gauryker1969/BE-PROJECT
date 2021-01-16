@@ -1,0 +1,828 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.5.1-0-g916b5db  Build Version: 1.5.7152.31018
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="my_robot" xmlns:xacro="http://www.ros.org/wiki/xacro">
+  <xacro:property name="cameraSize" value="0.05"/>
+  <xacro:property name="cameraMass" value="0.1"/>
+
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="-5.5511E-17 0 -0.0025"
+        rpy="0 0 0" />
+      <mass
+        value="0.5" />
+      <inertia
+        ixx="0.0027593"
+        ixy="3.2016E-20"
+        ixz="5.1244E-22"
+        iyy="0.0042374"
+        iyz="-1.2762E-21"
+        izz="0.006995" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link
+    name="rmotor">
+    <inertial>
+      <origin
+        xyz="0.027211 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.75" />
+      <inertia
+        ixx="7.1598E-06"
+        ixy="-4.0968E-38"
+        ixz="2.5362E-22"
+        iyy="2.4995E-05"
+        iyz="-9.4953E-39"
+        izz="2.4995E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/rmotor.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/rmotor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_to_rmotor"
+    type="fixed">
+    <origin
+      xyz="0 -0.10821 0.0185"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="rmotor" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="rwheel">
+    <inertial>
+      <origin
+        xyz="-0.032363 0 -5.5511E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.35" />
+      <inertia
+        ixx="0.00044184"
+        ixy="3.3923E-21"
+        ixz="4.7782E-19"
+        iyy="0.0002819"
+        iyz="-2.7105E-20"
+        izz="0.0002819" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/rwheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/rwheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="rmotor_to_rwheel"
+    type="continuous">
+    <origin
+      xyz="-0.01 0 0"
+      rpy="-0.59281 0 0" />
+    <parent
+      link="rmotor" />
+    <child
+      link="rwheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="lmotor">
+    <inertial>
+      <origin
+        xyz="0.027211 0 6.1062E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.75" />
+      <inertia
+        ixx="7.1598E-06"
+        ixy="4.5955E-36"
+        ixz="-3.9079E-19"
+        iyy="2.4995E-05"
+        iyz="-9.5046E-36"
+        izz="2.4995E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/lmotor.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/lmotor.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_to_lmotor"
+    type="fixed">
+    <origin
+      xyz="0 0.10821 0.0185"
+      rpy="-1.5708 0 -1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="lmotor" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="lwheel">
+    <inertial>
+      <origin
+        xyz="-0.032363 -5.3846E-15 -6.3283E-15"
+        rpy="0 0 0" />
+      <mass
+        value="0.35" />
+      <inertia
+        ixx="0.00044184"
+        ixy="-2.0982E-20"
+        ixz="2.1683E-18"
+        iyy="0.0002819"
+        iyz="-2.7105E-20"
+        izz="0.0002819" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/lwheel.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/lwheel.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="lmotor_to_lwheel"
+    type="continuous">
+    <origin
+      xyz="-0.01 0 0"
+      rpy="-2.6739 0 0" />
+    <parent
+      link="lmotor" />
+    <child
+      link="lwheel" />
+    <axis
+      xyz="1 0 0" />
+  </joint>
+  <link
+    name="stud1">
+    <inertial>
+      <origin
+        xyz="2.7756E-17 0.125 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.25" />
+      <inertia
+        ixx="5.014E-05"
+        ixy="-8.1342E-39"
+        ixz="9.9568E-57"
+        iyy="5.8929E-08"
+        iyz="-1.7467E-38"
+        izz="5.014E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/stud1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/stud1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_to_stud1"
+    type="fixed">
+    <origin
+      xyz="0.076513 0.076513 0"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="stud1" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="stud2">
+    <inertial>
+      <origin
+        xyz="0 0.125 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.25" />
+      <inertia
+        ixx="5.014E-05"
+        ixy="-8.1342E-39"
+        ixz="9.9568E-57"
+        iyy="5.8929E-08"
+        iyz="-1.7467E-38"
+        izz="5.014E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/stud2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/stud2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_to_stud2"
+    type="fixed">
+    <origin
+      xyz="0.076513 -0.076513 0"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="stud2" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="stud3">
+    <inertial>
+      <origin
+        xyz="-2.7756E-17 0.125 2.7756E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.25" />
+      <inertia
+        ixx="5.014E-05"
+        ixy="-8.1342E-39"
+        ixz="9.9568E-57"
+        iyy="5.8929E-08"
+        iyz="-1.7467E-38"
+        izz="5.014E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/stud3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/stud3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_to_stud3"
+    type="fixed">
+    <origin
+      xyz="-0.076513 0.076513 0"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="stud3" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="stud4">
+    <inertial>
+      <origin
+        xyz="0 0.125 -2.7756E-17"
+        rpy="0 0 0" />
+      <mass
+        value="0.25" />
+      <inertia
+        ixx="5.014E-05"
+        ixy="-8.1342E-39"
+        ixz="9.9568E-57"
+        iyy="5.8929E-08"
+        iyz="-1.7467E-38"
+        izz="5.014E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/stud4.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/stud4.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_to_stud4"
+    type="fixed">
+    <origin
+      xyz="-0.076513 -0.076513 0"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="stud4" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="front_caster">
+    <inertial>
+      <origin
+        xyz="0 -0.011703 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="5.1632E-07"
+        ixy="4.5981E-23"
+        ixz="4.1322E-23"
+        iyy="3.4296E-07"
+        iyz="-6.2946E-23"
+        izz="5.1632E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/front_caster.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/front_caster.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_to_front_caster"
+    type="fixed">
+    <origin
+      xyz="0.17321 0 -0.005"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="front_caster" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+  <link
+    name="back_caster">
+    <inertial>
+      <origin
+        xyz="0 -0.011703 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.1" />
+      <inertia
+        ixx="5.1632E-07"
+        ixy="4.8294E-23"
+        ixz="1.3972E-22"
+        iyy="3.4296E-07"
+        iyz="3.104E-23"
+        izz="5.1632E-07" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/back_caster.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/back_caster.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_to_back_caster"
+    type="fixed">
+    <origin
+      xyz="-0.17321 0 -0.005"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="back_caster" />
+    <axis
+      xyz="0 1 0" />
+  </joint>
+  <link
+    name="level2">
+    <inertial>
+      <origin
+        xyz="-1.1102E-16 0.0025 -1.1102E-16"
+        rpy="0 0 0" />
+      <mass
+        value="0.25" />
+      <inertia
+        ixx="0.0043312"
+        ixy="1.3524E-21"
+        ixz="3.1983E-18"
+        iyy="0.0086603"
+        iyz="-4.2477E-21"
+        izz="0.0043312" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/level2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.79216 0.81961 0.93333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/level2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_to_level2"
+    type="fixed">
+    <origin
+      xyz="0 0 0.12811"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="level2" />
+    <axis
+      xyz="0 1 0" />
+    <limit
+      lower="0"
+      upper="0"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="level3">
+    <inertial>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <mass
+        value="0.25" />
+      <inertia
+        ixx="0"
+        ixy="0"
+        ixz="0"
+        iyy="0"
+        iyz="0"
+        izz="0" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/level3.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="1 1 1 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://my_robot/meshes/level3.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="base_to_level3"
+    type="fixed">
+    <origin
+      xyz="0 0 0.245"
+      rpy="1.5708 0 1.5708" />
+    <parent
+      link="base_link" />
+    <child
+      link="level3" />
+    <axis
+      xyz="0 0 0" />
+  </joint>
+
+  <!-- CAMERA-->
+
+  <link name="camera">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${cameraSize} ${cameraSize} ${cameraSize}"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <box size="${cameraSize} ${cameraSize} ${cameraSize}"/>
+      </geometry>
+      <material name="green"/>
+    </visual>
+
+    <inertial>
+      <mass value="${cameraMass}" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <box_inertia m="${cameraMass}" x="${cameraSize}" y="${cameraSize}" z="${cameraSize}" />
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+  <joint name="camera_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz=".2 0 0" rpy="0 0 0"/>
+    <parent link="level2"/>
+    <child link="camera"/>
+  </joint>
+
+  <!-- LIDAR -->
+
+  <!-- Hokuyo Laser -->
+  <link name="laser">
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+    <box size="0.1 0.1 0.1"/>
+      </geometry>
+    </collision>
+
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://my_robot/meshes/hokuyo.dae"/>
+      </geometry>
+    </visual>
+
+    <inertial>
+      <mass value="1e-5" />
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <inertia ixx="1e-6" ixy="0" ixz="0" iyy="1e-6" iyz="0" izz="1e-6" />
+    </inertial>
+  </link>
+
+
+
+  <joint name="rplidar_joint" type="fixed">
+    <axis xyz="0 1 0" />
+    <origin xyz="0 0.027 0.15" rpy="0 0 0"/>
+    <parent link="level2"/>
+    <child link="laser"/>
+  </joint>
+
+
+<gazebo reference="laser">
+    <sensor type="ray" name="head_rplidar_sensor">
+      <pose>0 0 0 0 0 0</pose>
+      <visualize>true</visualize>
+      <update_rate>40</update_rate>
+      <ray>
+        <scan>
+          <horizontal>
+            <samples>720</samples>
+            <resolution>1</resolution>
+            <min_angle>-2.35619</min_angle>
+            <max_angle>2.35619</max_angle>
+          </horizontal>
+        </scan>
+        <range>
+          <min>0.5</min>
+          <max>20.0</max>
+          <resolution>0.01</resolution>
+        </range>
+        <noise>
+          <type>gaussian</type>
+          <mean>0.0</mean>
+          <stddev>0.01</stddev>
+        </noise>
+      </ray>
+      <plugin name="gazebo_ros_head_rplidar_controller" filename="libgazebo_ros_laser.so">
+        <topicName>/ebot/laser/scan</topicName>
+        <frameName>laser</frameName>
+      </plugin>
+    </sensor>
+  </gazebo> 
+
+  
+  <gazebo reference="camera">
+    <material>Gazebo/Green</material>
+    <sensor type="camera" name="camera1">
+      <update_rate>30.0</update_rate>
+      <camera name="head">
+        <horizontal_fov>1.3962634</horizontal_fov>
+        <image>
+          <width>800</width>
+          <height>800</height>
+          <format>R8G8B8</format>
+        </image>
+        <clip>
+          <near>0.02</near>
+          <far>300</far>
+        </clip>
+      </camera>
+      <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>0.0</updateRate>
+        <cameraName>mybot/camera1</cameraName>
+        <imageTopicName>image_raw</imageTopicName>
+        <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+        <frameName>camera</frameName>
+        <hackBaseline>0.07</hackBaseline>
+        <distortionK1>0.0</distortionK1>
+        <distortionK2>0.0</distortionK2>
+        <distortionK3>0.0</distortionK3>
+        <distortionT1>0.0</distortionT1>
+        <distortionT2>0.0</distortionT2>
+      </plugin>
+    </sensor>
+  </gazebo>
+
+
+
+</robot>
